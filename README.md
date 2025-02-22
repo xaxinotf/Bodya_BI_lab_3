@@ -1,3 +1,118 @@
+# Business Analytics Dashboard
+
+This repository contains a Dash application that performs four Data Mining tasks on the Chech Bank dataset. The tasks include:
+
+1. **Loan Default Classification**  
+   - **Description:** Classify client defaults based on transaction and loan data. The target variable “default” is set to 1 (if a loan was taken) and 0 (if not).  
+   - **Models Used:** Logistic Regression and Random Forest Classifier  
+   - **Performance:** Evaluated using Accuracy and F1-Score. The Random Forest model showed superior performance.
+
+2. **Transaction Amount Forecasting**  
+   - **Description:** Forecast the transaction amount (trans_amount) using loan, balance, and other features.  
+   - **Models Used:** Linear Regression and Random Forest Regressor  
+   - **Performance:** Evaluated using Mean Squared Error (MSE). Random Forest Regressor produced a lower MSE compared to Linear Regression.
+
+3. **Customer Clustering**  
+   - **Description:** Cluster customers based on features such as age (age_scaled) and gender (gender_encoded) to identify groups with similar characteristics.  
+   - **Methods Used:** MiniBatchKMeans and an emulated clustering approach using Random Forest Classification  
+   - **Performance:** Evaluated using the Silhouette Score. Both methods yielded similar results, with room for further optimization of the number of clusters.
+
+4. **Dependency Discovery**  
+   - **Description:** Discover dependencies between transaction types and credit activity to determine if certain transaction types affect the likelihood of obtaining a loan.  
+   - **Models Used:** Support Vector Machine (SVM) with a linear kernel and Random Forest Classifier  
+   - **Performance:** Evaluated using Accuracy and F1-Score. Both models produced comparable results, though Random Forest may be more robust to noise and non-linear relationships.
+
+---
+
+## Загальний висновок / Overall Conclusion
+
+**UA:**  
+У ході виконання завдань було розроблено чотири різні підходи для аналізу даних. Використання різних моделей дозволило глибше проаналізувати дані та порівняти їхню продуктивність:
+- **Класифікація дефолту:** Random Forest показав кращі результати порівняно з Logistic Regression.
+- **Прогнозування транзакцій:** Random Forest Regressor продемонстрував нижчу середньоквадратичну помилку (MSE) порівняно з Linear Regression.
+- **Кластеризація клієнтів:** Обидва методи дали схожі результати, проте подальше налаштування може покращити сегментацію.
+- **Виявлення залежностей:** Моделі SVM і Random Forest ефективно виявляють залежності, з перевагою Random Forest щодо стійкості до шуму.
+
+**EN:**  
+Throughout this project, four distinct data mining approaches were developed. The use of various models allowed for a deeper analysis of the data and comparison of their performance:
+- **Loan Default Classification:** Random Forest outperformed Logistic Regression.
+- **Transaction Amount Forecasting:** Random Forest Regressor achieved a lower MSE compared to Linear Regression.
+- **Customer Clustering:** Both methods produced similar results, though further tuning could enhance segmentation.
+- **Dependency Discovery:** Both SVM and Random Forest effectively detected relationships, with Random Forest showing higher robustness to noise.
+
+---
+
+## How to Run the Application
+
+### Prerequisites
+
+1. **Python 3.12** (or higher)
+2. **Virtual Environment (Recommended)**
+
+### Installation Steps
+
+1. **Clone the Repository**
+
+   Open your terminal or command prompt and run:
+   ```bash
+   git clone https://github.com/xaxinotf/Bodya_BI_lab_3.git
+   cd Bodya_BI_lab_3
+
+
+```markdown
+
+2. **Create and Activate a Virtual Environment**
+
+   For Windows:
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate
+   ```
+   For macOS/Linux:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. **Install Dependencies**
+
+   Install the required Python libraries using pip:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   *(If a `requirements.txt` file is not provided, ensure you have installed the following packages: `pandas`, `numpy`, `scikit-learn`, `plotly`, `dash`, `dash-bootstrap-components`, `seaborn`, `matplotlib`.)*
+
+4. **Run the Application**
+
+   Start the Dash app by running:
+   ```bash
+   python main.py
+   ```
+   You should see log messages indicating that the app has started, and it will be accessible at:
+   ```
+   http://127.0.0.1:8050/
+   ```
+
+5. **Access the Dashboard**
+
+   Open your web browser and navigate to [http://127.0.0.1:8050/](http://127.0.0.1:8050/). The dashboard should load, displaying interactive visualizations for the four Data Mining tasks.
+
+---
+
+
+## Repository Structure
+
+- `main.py` – Main Dash application code.
+- `account.csv`, `client.csv`, `disp.csv`, `loan.csv`, `trans.csv` – Data files.
+- `app.log` – Log file for application events.
+- Additional CSV files (e.g., `dim_account.csv`, `dim_client.csv`, etc.) may be included for extended analysis.
+
+---
+
+
+
+
+
 ### Міні репорт / Mini Report
 
 ---
